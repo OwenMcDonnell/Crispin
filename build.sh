@@ -10,7 +10,9 @@ NAME=$(basename $(ls *.sln | head -n 1) .sln)
 
 dotnet build --configuration $MODE
 
-/usr/bin/find ./src -maxdepth 3 -iname "*.Tests.csproj" -type f -exec dotnet test \
+which find
+
+find ./src -maxdepth 3 -iname "*.Tests.csproj" -type f -exec dotnet test \
     --no-build \
     --no-restore \
     --configuration $MODE \
